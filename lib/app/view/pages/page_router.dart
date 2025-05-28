@@ -3,12 +3,13 @@ import 'package:esupa_store_pos/features/home/home.dart' show HomePage;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../features/selling/selling.dart';
 import 'splash_page.dart';
 
 mixin AppRouter {
   GoRouter buildRouter(AuthBloc authBloc) {
     return GoRouter(
-      initialLocation: '/splash',
+      initialLocation: '/home',
       routes: <RouteBase>[
         GoRoute(
           path: '/splash',
@@ -20,7 +21,17 @@ mixin AppRouter {
           builder:
               (BuildContext context, GoRouterState state) => const HomePage(),
         ),
+        GoRoute(
+          path: Path.selling,
+          builder:
+              (BuildContext context, GoRouterState state) =>
+                  const SellingPage(),
+        ),
       ],
     );
   }
+}
+
+class Path {
+  static const selling = '/selling';
 }

@@ -7,6 +7,7 @@ targets:
             - lib/**/cubit/**
             - lib/**/bloc/**
             - lib/business_logic/models/**
+            - lib/**/domain/models/**
           exclude:
             - lib/test/
       freezed:
@@ -21,5 +22,6 @@ targets:
             - lib/**/cubit/**
             - lib/**/bloc/**
             - lib/business_logic/models/**
+            - lib/**/domain/models/**
           exclude:
             - lib/test/

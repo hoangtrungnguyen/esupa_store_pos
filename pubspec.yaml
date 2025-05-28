@@ -14,15 +14,16 @@ dependencies:
 
   intl:
 
+  freezed_annotation: ^3.0.0
   bloc: ^9.0.0
   flutter_bloc: ^9.1.1
   dartx: ^1.2.0
 
-
   go_router: ^15.1.2
 
-  freezed_annotation: ^3.0.0
+
   collection: ^1.19.1
+  uuid: ^4.3.3
 
   # connectivity
   connectivity_plus: ^6.1.4
