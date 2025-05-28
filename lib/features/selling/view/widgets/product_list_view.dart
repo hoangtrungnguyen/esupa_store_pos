@@ -1,3 +1,4 @@
+import 'package:esupa_store_pos/widgets/currency_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -200,8 +201,8 @@ class ProductCard extends StatelessWidget {
               const Spacer(),
               Align(
                 alignment: Alignment.bottomRight,
-                child: Text(
-                  '\$${product.price.toStringAsFixed(2)}',
+                child: CurrencyText(
+                  amount: product.price,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,

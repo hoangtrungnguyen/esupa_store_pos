@@ -1,3 +1,4 @@
+import 'package:esupa_store_pos/widgets/currency_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -162,8 +163,8 @@ class CartView extends StatelessWidget {
               color: isTotal ? Colors.black87 : Colors.grey.shade700,
             ),
           ),
-          Text(
-            '\$${amount.toStringAsFixed(2)}',
+          CurrencyText(
+            amount: amount,
             style: TextStyle(
               fontSize: isTotal ? 20 : 16,
               fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
@@ -249,8 +250,8 @@ class OrderItemCard extends StatelessWidget {
               ],
             ),
             const SizedBox(width: 8),
-            Text(
-              '\$${(orderItem.product.price * orderItem.quantity).toStringAsFixed(2)}',
+            CurrencyText(
+              amount: orderItem.product.price * orderItem.quantity,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             IconButton(
