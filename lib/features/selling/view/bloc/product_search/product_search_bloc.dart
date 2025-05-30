@@ -2,26 +2,25 @@ import 'package:bloc/bloc.dart';
 import 'package:esupa_store_pos/features/selling/domain/models/product.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../data/data.dart';
+import '../../../service/service.dart';
 
 part 'product_search_bloc.freezed.dart';
 part 'product_search_event.dart';
 part 'product_search_state.dart';
 
 class ProductSearchBloc extends Bloc<ProductSearchEvent, ProductSearchState> {
-  final List<Product> _initialProducts = ProductDataSource().data;
-
   ProductSearchBloc() : super(const ProductSearchState.initial()) {
-    on<_SearchProducts>((event, emit) {
+    on<_SearchProducts>((event, emit) async {
       emit(const ProductSearchState.loading());
 
-      List<Product> productsToFilter = _initialProducts;
+      final List<Product> initialProducts =
+          await SearchProductService().getAllData();
+
+      List<Product> productsToFilter = initialProducts;
 
       if (event.category != 'All Items') {
         productsToFilter =
-            _initialProducts
-                .where((p) => p.category == event.category)
-                .toList();
+            initialProducts.where((p) => p.category == event.category).toList();
       }
 
       final filtered =
@@ -33,7 +32,7 @@ class ProductSearchBloc extends Bloc<ProductSearchEvent, ProductSearchState> {
 
       emit(
         ProductSearchState.loaded(
-          allProducts: _initialProducts,
+          allProducts: initialProducts,
           filteredProducts: filtered,
           searchTerm: event.searchTerm,
           currentCategory: event.category,
@@ -41,11 +40,16 @@ class ProductSearchBloc extends Bloc<ProductSearchEvent, ProductSearchState> {
       );
     });
 
-    on<_ClearSearch>((event, emit) {
+    on<_ClearSearch>((event, emit) async {
+      emit(const ProductSearchState.loading());
+
+      final List<Product> initialProducts =
+          await SearchProductService().getAllData();
+
       emit(
         ProductSearchState.loaded(
-          allProducts: _initialProducts,
-          filteredProducts: _initialProducts,
+          allProducts: initialProducts,
+          filteredProducts: initialProducts,
           searchTerm: '',
           currentCategory: 'All Items',
         ),

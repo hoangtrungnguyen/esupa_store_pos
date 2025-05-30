@@ -29,7 +29,11 @@ cd lib/**/features/
 mason make feature
 ```
 
+#### Updating Mason Bricks
 
-
-
-
+```shell
+mason cache clear
+```
+```shell
+mason get
+```
