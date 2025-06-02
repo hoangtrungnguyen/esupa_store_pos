@@ -4,14 +4,14 @@ import 'package:go_router/go_router.dart';
 
 import 'bloc/auth/auth_bloc.dart';
 
-class AppRootPage extends StatefulWidget {
-  const AppRootPage({super.key});
+class AppRoot extends StatefulWidget {
+  const AppRoot({super.key});
 
   @override
-  State<AppRootPage> createState() => _AppRootPageState();
+  State<AppRoot> createState() => _AppRootState();
 }
 
-class _AppRootPageState extends State<AppRootPage> with AppRouter {
+class _AppRootState extends State<AppRoot> with PageRouter {
   late final AuthBloc _authBloc;
   late final GoRouter _router;
 

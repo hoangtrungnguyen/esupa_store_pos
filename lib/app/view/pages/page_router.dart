@@ -6,18 +6,18 @@ import 'package:go_router/go_router.dart';
 import '../../../features/selling/selling.dart';
 import 'splash_page.dart';
 
-mixin AppRouter {
+mixin PageRouter {
   GoRouter buildRouter(AuthBloc authBloc) {
     return GoRouter(
-      initialLocation: '/home',
+      initialLocation: Path.home,
       routes: <RouteBase>[
         GoRoute(
-          path: '/splash',
+          path: Path.splash,
           builder:
               (BuildContext context, GoRouterState state) => const SplashPage(),
         ),
         GoRoute(
-          path: '/home',
+          path: Path.home,
           builder:
               (BuildContext context, GoRouterState state) => const HomePage(),
         ),
@@ -33,5 +33,7 @@ mixin AppRouter {
 }
 
 class Path {
+  static const splash = '/splash';
+  static const home = '/home';
   static const selling = '/selling';
 }

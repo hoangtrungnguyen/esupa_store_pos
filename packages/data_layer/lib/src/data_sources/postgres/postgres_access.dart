@@ -16,6 +16,8 @@ class PostgresAccess {
 
   final ConnectionSettings _settings;
 
+  late Connection _connection;
+
   ///Open connection to postgres server
   Future<void> openConnection() async {
     // final conn = await Connection.open(
@@ -33,5 +35,13 @@ class PostgresAccess {
 
     final conn = await Connection.open(_endpoint, settings: _settings);
     log('has connection!');
+    _connection = conn;
   }
+
+  ///Close connection to postgres server
+  Future<void> closeConnection() async {
+    await _connection.close();
+  }
+
+  Connection get connection => _connection;
 }

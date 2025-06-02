@@ -8,8 +8,15 @@ class PostgresProductRepositoryImpl extends ProductRepository {
   ProductDataSource _productDataSource;
 
   Future<List<Product>> findAll() async {
-    await _productDataSource.query();
-
-    return [];
+    List<Map<String, dynamic>> data = await _productDataSource.findAll();
+    return data.map((e) {
+      return Product(
+        id: e['id'] as int,
+        name: e['name_full_size_14'] as String,
+        description: '',
+        price: (e['price'] as int).toDouble(),
+        category: '',
+      );
+    }).toList();
   }
 }

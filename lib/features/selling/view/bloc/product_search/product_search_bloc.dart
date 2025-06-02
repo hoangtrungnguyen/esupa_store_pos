@@ -11,33 +11,39 @@ part 'product_search_state.dart';
 class ProductSearchBloc extends Bloc<ProductSearchEvent, ProductSearchState> {
   ProductSearchBloc() : super(const ProductSearchState.initial()) {
     on<_SearchProducts>((event, emit) async {
-      emit(const ProductSearchState.loading());
+      try {
+        emit(const ProductSearchState.loading());
 
-      final List<Product> initialProducts =
-          await SearchProductService().getAllData();
+        final List<Product> initialProducts =
+            await SearchProductService().getAllData();
 
-      List<Product> productsToFilter = initialProducts;
+        List<Product> productsToFilter = initialProducts;
 
-      if (event.category != 'All Items') {
-        productsToFilter =
-            initialProducts.where((p) => p.category == event.category).toList();
+        if (event.category != 'All Items') {
+          productsToFilter =
+              initialProducts
+                  .where((p) => p.category == event.category)
+                  .toList();
+        }
+
+        final filtered =
+            productsToFilter.where((product) {
+              final searchTermLower = event.searchTerm.toLowerCase();
+              return product.name.toLowerCase().contains(searchTermLower) ||
+                  product.description.toLowerCase().contains(searchTermLower);
+            }).toList();
+
+        emit(
+          ProductSearchState.loaded(
+            allProducts: initialProducts,
+            filteredProducts: filtered,
+            searchTerm: event.searchTerm,
+            currentCategory: event.category,
+          ),
+        );
+      } catch (e) {
+        emit(ProductSearchState.error(e.toString()));
       }
-
-      final filtered =
-          productsToFilter.where((product) {
-            final searchTermLower = event.searchTerm.toLowerCase();
-            return product.name.toLowerCase().contains(searchTermLower) ||
-                product.description.toLowerCase().contains(searchTermLower);
-          }).toList();
-
-      emit(
-        ProductSearchState.loaded(
-          allProducts: initialProducts,
-          filteredProducts: filtered,
-          searchTerm: event.searchTerm,
-          currentCategory: event.category,
-        ),
-      );
     });
 
     on<_ClearSearch>((event, emit) async {
