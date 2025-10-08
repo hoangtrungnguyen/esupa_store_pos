@@ -11,9 +11,9 @@ class SearchProductService {
             (data_layer.Product e) => Product(
               id: '${e.id}',
               name: e.name,
-              description: e.description,
+              description: "",
               price: e.price,
-              category: e.category,
+              category: "",
             ),
           )
           .toList();

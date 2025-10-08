@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
+            print("To Selling Page");
             context.go(page_router.Path.selling);
           },
           child: Text("Bắt đầu bán hàng"),

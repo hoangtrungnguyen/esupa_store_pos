@@ -13,7 +13,7 @@ class ProductSearchBloc extends Bloc<ProductSearchEvent, ProductSearchState> {
     on<_SearchProducts>((event, emit) async {
       try {
         emit(const ProductSearchState.loading());
-
+        print("Start search");
         final List<Product> initialProducts =
             await SearchProductService().getAllData();
 
@@ -41,7 +41,9 @@ class ProductSearchBloc extends Bloc<ProductSearchEvent, ProductSearchState> {
             currentCategory: event.category,
           ),
         );
-      } catch (e) {
+      } catch (e, trace) {
+        print("Error: ${e.toString()}");
+        print(trace);
         emit(ProductSearchState.error(e.toString()));
       }
     });

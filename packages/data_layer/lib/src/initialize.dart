@@ -9,29 +9,33 @@ final GetIt _getIt = GetIt.instance;
 
 /// Initialize data layer
 Future<void> initialize({Endpoint? endpoint}) async {
-  GetIt.I.registerSingletonAsync<PostgresAccess>(() async {
-    final endPoint =
-        endpoint ??
-        Endpoint(
-          host: '192.168.2.200',
-          database: 'ebond_pos_1530',
-          username: 'postgres',
-          password: 'Ohmidas@12340',
-        );
-    const settings = ConnectionSettings(sslMode: SslMode.disable);
-    final postgresAccess = PostgresAccess(
-      endpoint: endPoint,
-      settings: settings,
-    );
-    await postgresAccess.openConnection();
-    return postgresAccess;
-  });
+  // GetIt.I.registerSingletonAsync<PostgresAccess>(() async {
+  //   final endPoint =
+  //       endpoint ??
+  //       Endpoint(
+  //         host: '192.168.2.200',
+  //         database: 'ebond_pos_1530',
+  //         username: 'postgres',
+  //         password: 'Ohmidas@12340',
+  //       );
+  //   const settings = ConnectionSettings(sslMode: SslMode.disable);
+  //   final postgresAccess = PostgresAccess(
+  //     endpoint: endPoint,
+  //     settings: settings,
+  //   );
+  //   await postgresAccess.openConnection();
+  //   return postgresAccess;
+  // });
 
-  GetIt.I.registerSingletonWithDependencies<ProductRepository>(
-    () => PostgresProductRepositoryImpl(
-      ProductDataSource(_getIt<PostgresAccess>()),
-    ),
+  // GetIt.I.registerSingletonWithDependencies<ProductRepository>(
+  //   () => PostgresProductRepositoryImpl(
+  //     ProductDataSource(_getIt<PostgresAccess>()),
+  //   ),
+  //   // Access RestService here
+  //   dependsOn: [PostgresAccess], // IMPORTANT: Specify the dependency type
+  // );
+  GetIt.I.registerLazySingleton<ProductRepository>(
+    () => LocalProductRepository(),
     // Access RestService here
-    dependsOn: [PostgresAccess], // IMPORTANT: Specify the dependency type
   );
 }
