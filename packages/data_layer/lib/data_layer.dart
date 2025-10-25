@@ -1,5 +1,4 @@
 /// Access to persistence data layer
-library;
 
 export 'src/entities/entities.dart';
 export 'src/initialize.dart';

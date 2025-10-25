@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -32,6 +31,159 @@ mixin _$SellingEvent {
 /// @nodoc
 class $SellingEventCopyWith<$Res> {
   $SellingEventCopyWith(SellingEvent _, $Res Function(SellingEvent) __);
+}
+
+/// Adds pattern-matching-related methods to [SellingEvent].
+extension SellingEventPatterns on SellingEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Started() when started != null:
+        return started(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Started():
+        return started(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Started() when started != null:
+        return started(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Started() when started != null:
+        return started();
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({required TResult Function() started}) {
+    final _that = this;
+    switch (_that) {
+      case _Started():
+        return started();
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({TResult? Function()? started}) {
+    final _that = this;
+    switch (_that) {
+      case _Started() when started != null:
+        return started();
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
@@ -139,21 +291,18 @@ class _$SellingStateCopyWithImpl<$Res> implements $SellingStateCopyWith<$Res> {
   }) {
     return _then(
       _self.copyWith(
-        customer:
-            freezed == customer
-                ? _self.customer
-                : customer // ignore: cast_nullable_to_non_nullable
-                    as Customer?,
-        user:
-            null == user
-                ? _self.user
-                : user // ignore: cast_nullable_to_non_nullable
-                    as User,
-        session:
-            null == session
-                ? _self.session
-                : session // ignore: cast_nullable_to_non_nullable
-                    as Session,
+        customer: freezed == customer
+            ? _self.customer
+            : customer // ignore: cast_nullable_to_non_nullable
+                  as Customer?,
+        user: null == user
+            ? _self.user
+            : user // ignore: cast_nullable_to_non_nullable
+                  as User,
+        session: null == session
+            ? _self.session
+            : session // ignore: cast_nullable_to_non_nullable
+                  as Session,
       ),
     );
   }
@@ -190,6 +339,164 @@ class _$SellingStateCopyWithImpl<$Res> implements $SellingStateCopyWith<$Res> {
     return $SessionCopyWith<$Res>(_self.session, (value) {
       return _then(_self.copyWith(session: value));
     });
+  }
+}
+
+/// Adds pattern-matching-related methods to [SellingState].
+extension SellingStatePatterns on SellingState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SellingState value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _SellingState() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_SellingState value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _SellingState():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_SellingState value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _SellingState() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Customer? customer, User user, Session session)?
+    $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _SellingState() when $default != null:
+        return $default(_that.customer, _that.user, _that.session);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Customer? customer, User user, Session session) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _SellingState():
+        return $default(_that.customer, _that.user, _that.session);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Customer? customer, User user, Session session)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _SellingState() when $default != null:
+        return $default(_that.customer, _that.user, _that.session);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -283,21 +590,18 @@ class __$SellingStateCopyWithImpl<$Res>
   }) {
     return _then(
       _SellingState(
-        customer:
-            freezed == customer
-                ? _self.customer
-                : customer // ignore: cast_nullable_to_non_nullable
-                    as Customer?,
-        user:
-            null == user
-                ? _self.user
-                : user // ignore: cast_nullable_to_non_nullable
-                    as User,
-        session:
-            null == session
-                ? _self.session
-                : session // ignore: cast_nullable_to_non_nullable
-                    as Session,
+        customer: freezed == customer
+            ? _self.customer
+            : customer // ignore: cast_nullable_to_non_nullable
+                  as Customer?,
+        user: null == user
+            ? _self.user
+            : user // ignore: cast_nullable_to_non_nullable
+                  as User,
+        session: null == session
+            ? _self.session
+            : session // ignore: cast_nullable_to_non_nullable
+                  as Session,
       ),
     );
   }

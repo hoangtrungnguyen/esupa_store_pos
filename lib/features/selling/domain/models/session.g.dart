@@ -9,10 +9,9 @@ part of 'session.dart';
 _Session _$SessionFromJson(Map<String, dynamic> json) => _Session(
   id: json['id'] as String,
   startTime: DateTime.parse(json['startTime'] as String),
-  endTime:
-      json['endTime'] == null
-          ? null
-          : DateTime.parse(json['endTime'] as String),
+  endTime: json['endTime'] == null
+      ? null
+      : DateTime.parse(json['endTime'] as String),
 );
 
 Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{

@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -75,23 +74,179 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
   $Res call({Object? id = null, Object? items = null, Object? taxRate = null}) {
     return _then(
       _self.copyWith(
-        id:
-            null == id
-                ? _self.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        items:
-            null == items
-                ? _self.items
-                : items // ignore: cast_nullable_to_non_nullable
-                    as List<OrderItem>,
-        taxRate:
-            null == taxRate
-                ? _self.taxRate
-                : taxRate // ignore: cast_nullable_to_non_nullable
-                    as double,
+        id: null == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        items: null == items
+            ? _self.items
+            : items // ignore: cast_nullable_to_non_nullable
+                  as List<OrderItem>,
+        taxRate: null == taxRate
+            ? _self.taxRate
+            : taxRate // ignore: cast_nullable_to_non_nullable
+                  as double,
       ),
     );
+  }
+}
+
+/// Adds pattern-matching-related methods to [Order].
+extension OrderPatterns on Order {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Order value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Order() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Order value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Order():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Order value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Order() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String id, List<OrderItem> items, double taxRate)?
+    $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Order() when $default != null:
+        return $default(_that.id, _that.items, _that.taxRate);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String id, List<OrderItem> items, double taxRate) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Order():
+        return $default(_that.id, _that.items, _that.taxRate);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String id, List<OrderItem> items, double taxRate)?
+    $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Order() when $default != null:
+        return $default(_that.id, _that.items, _that.taxRate);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -182,21 +337,18 @@ class __$OrderCopyWithImpl<$Res> implements _$OrderCopyWith<$Res> {
   $Res call({Object? id = null, Object? items = null, Object? taxRate = null}) {
     return _then(
       _Order(
-        id:
-            null == id
-                ? _self.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        items:
-            null == items
-                ? _self._items
-                : items // ignore: cast_nullable_to_non_nullable
-                    as List<OrderItem>,
-        taxRate:
-            null == taxRate
-                ? _self.taxRate
-                : taxRate // ignore: cast_nullable_to_non_nullable
-                    as double,
+        id: null == id
+            ? _self.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        items: null == items
+            ? _self._items
+            : items // ignore: cast_nullable_to_non_nullable
+                  as List<OrderItem>,
+        taxRate: null == taxRate
+            ? _self.taxRate
+            : taxRate // ignore: cast_nullable_to_non_nullable
+                  as double,
       ),
     );
   }
@@ -261,16 +413,14 @@ class _$OrderItemCopyWithImpl<$Res> implements $OrderItemCopyWith<$Res> {
   $Res call({Object? product = null, Object? quantity = null}) {
     return _then(
       _self.copyWith(
-        product:
-            null == product
-                ? _self.product
-                : product // ignore: cast_nullable_to_non_nullable
-                    as Product,
-        quantity:
-            null == quantity
-                ? _self.quantity
-                : quantity // ignore: cast_nullable_to_non_nullable
-                    as int,
+        product: null == product
+            ? _self.product
+            : product // ignore: cast_nullable_to_non_nullable
+                  as Product,
+        quantity: null == quantity
+            ? _self.quantity
+            : quantity // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }
@@ -283,6 +433,163 @@ class _$OrderItemCopyWithImpl<$Res> implements $OrderItemCopyWith<$Res> {
     return $ProductCopyWith<$Res>(_self.product, (value) {
       return _then(_self.copyWith(product: value));
     });
+  }
+}
+
+/// Adds pattern-matching-related methods to [OrderItem].
+extension OrderItemPatterns on OrderItem {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_OrderItem value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _OrderItem() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_OrderItem value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _OrderItem():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_OrderItem value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _OrderItem() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Product product, int quantity)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _OrderItem() when $default != null:
+        return $default(_that.product, _that.quantity);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Product product, int quantity) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _OrderItem():
+        return $default(_that.product, _that.quantity);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Product product, int quantity)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _OrderItem() when $default != null:
+        return $default(_that.product, _that.quantity);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -361,16 +668,14 @@ class __$OrderItemCopyWithImpl<$Res> implements _$OrderItemCopyWith<$Res> {
   $Res call({Object? product = null, Object? quantity = null}) {
     return _then(
       _OrderItem(
-        product:
-            null == product
-                ? _self.product
-                : product // ignore: cast_nullable_to_non_nullable
-                    as Product,
-        quantity:
-            null == quantity
-                ? _self.quantity
-                : quantity // ignore: cast_nullable_to_non_nullable
-                    as int,
+        product: null == product
+            ? _self.product
+            : product // ignore: cast_nullable_to_non_nullable
+                  as Product,
+        quantity: null == quantity
+            ? _self.quantity
+            : quantity // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }

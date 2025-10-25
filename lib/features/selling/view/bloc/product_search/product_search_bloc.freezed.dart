@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -35,6 +34,182 @@ class $ProductSearchEventCopyWith<$Res> {
     ProductSearchEvent _,
     $Res Function(ProductSearchEvent) __,
   );
+}
+
+/// Adds pattern-matching-related methods to [ProductSearchEvent].
+extension ProductSearchEventPatterns on ProductSearchEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SearchProducts value)? searchProducts,
+    TResult Function(_ClearSearch value)? clearSearch,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _SearchProducts() when searchProducts != null:
+        return searchProducts(_that);
+      case _ClearSearch() when clearSearch != null:
+        return clearSearch(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SearchProducts value) searchProducts,
+    required TResult Function(_ClearSearch value) clearSearch,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _SearchProducts():
+        return searchProducts(_that);
+      case _ClearSearch():
+        return clearSearch(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SearchProducts value)? searchProducts,
+    TResult? Function(_ClearSearch value)? clearSearch,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _SearchProducts() when searchProducts != null:
+        return searchProducts(_that);
+      case _ClearSearch() when clearSearch != null:
+        return clearSearch(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String searchTerm, String category)? searchProducts,
+    TResult Function()? clearSearch,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _SearchProducts() when searchProducts != null:
+        return searchProducts(_that.searchTerm, _that.category);
+      case _ClearSearch() when clearSearch != null:
+        return clearSearch();
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String searchTerm, String category)
+    searchProducts,
+    required TResult Function() clearSearch,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _SearchProducts():
+        return searchProducts(_that.searchTerm, _that.category);
+      case _ClearSearch():
+        return clearSearch();
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String searchTerm, String category)? searchProducts,
+    TResult? Function()? clearSearch,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _SearchProducts() when searchProducts != null:
+        return searchProducts(_that.searchTerm, _that.category);
+      case _ClearSearch() when clearSearch != null:
+        return clearSearch();
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
@@ -101,12 +276,11 @@ class __$SearchProductsCopyWithImpl<$Res>
         null == searchTerm
             ? _self.searchTerm
             : searchTerm // ignore: cast_nullable_to_non_nullable
-                as String,
-        category:
-            null == category
-                ? _self.category
-                : category // ignore: cast_nullable_to_non_nullable
-                    as String,
+                  as String,
+        category: null == category
+            ? _self.category
+            : category // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
@@ -168,6 +342,250 @@ class $ProductSearchStateCopyWith<$Res> {
     ProductSearchState _,
     $Res Function(ProductSearchState) __,
   );
+}
+
+/// Adds pattern-matching-related methods to [ProductSearchState].
+extension ProductSearchStatePatterns on ProductSearchState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialProductSearchState value)? initial,
+    TResult Function(LoadingProductSearchState value)? loading,
+    TResult Function(LoadedProductSearchState value)? loaded,
+    TResult Function(ErrorProductSearchState value)? error,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case InitialProductSearchState() when initial != null:
+        return initial(_that);
+      case LoadingProductSearchState() when loading != null:
+        return loading(_that);
+      case LoadedProductSearchState() when loaded != null:
+        return loaded(_that);
+      case ErrorProductSearchState() when error != null:
+        return error(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialProductSearchState value) initial,
+    required TResult Function(LoadingProductSearchState value) loading,
+    required TResult Function(LoadedProductSearchState value) loaded,
+    required TResult Function(ErrorProductSearchState value) error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case InitialProductSearchState():
+        return initial(_that);
+      case LoadingProductSearchState():
+        return loading(_that);
+      case LoadedProductSearchState():
+        return loaded(_that);
+      case ErrorProductSearchState():
+        return error(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialProductSearchState value)? initial,
+    TResult? Function(LoadingProductSearchState value)? loading,
+    TResult? Function(LoadedProductSearchState value)? loaded,
+    TResult? Function(ErrorProductSearchState value)? error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case InitialProductSearchState() when initial != null:
+        return initial(_that);
+      case LoadingProductSearchState() when loading != null:
+        return loading(_that);
+      case LoadedProductSearchState() when loaded != null:
+        return loaded(_that);
+      case ErrorProductSearchState() when error != null:
+        return error(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(
+      List<Product> allProducts,
+      List<Product> filteredProducts,
+      String searchTerm,
+      String currentCategory,
+    )?
+    loaded,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case InitialProductSearchState() when initial != null:
+        return initial();
+      case LoadingProductSearchState() when loading != null:
+        return loading();
+      case LoadedProductSearchState() when loaded != null:
+        return loaded(
+          _that.allProducts,
+          _that.filteredProducts,
+          _that.searchTerm,
+          _that.currentCategory,
+        );
+      case ErrorProductSearchState() when error != null:
+        return error(_that.message);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(
+      List<Product> allProducts,
+      List<Product> filteredProducts,
+      String searchTerm,
+      String currentCategory,
+    )
+    loaded,
+    required TResult Function(String message) error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case InitialProductSearchState():
+        return initial();
+      case LoadingProductSearchState():
+        return loading();
+      case LoadedProductSearchState():
+        return loaded(
+          _that.allProducts,
+          _that.filteredProducts,
+          _that.searchTerm,
+          _that.currentCategory,
+        );
+      case ErrorProductSearchState():
+        return error(_that.message);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(
+      List<Product> allProducts,
+      List<Product> filteredProducts,
+      String searchTerm,
+      String currentCategory,
+    )?
+    loaded,
+    TResult? Function(String message)? error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case InitialProductSearchState() when initial != null:
+        return initial();
+      case LoadingProductSearchState() when loading != null:
+        return loading();
+      case LoadedProductSearchState() when loaded != null:
+        return loaded(
+          _that.allProducts,
+          _that.filteredProducts,
+          _that.searchTerm,
+          _that.currentCategory,
+        );
+      case ErrorProductSearchState() when error != null:
+        return error(_that.message);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
@@ -358,26 +776,22 @@ class _$LoadedProductSearchStateCopyWithImpl<$Res>
   }) {
     return _then(
       LoadedProductSearchState(
-        allProducts:
-            null == allProducts
-                ? _self._allProducts
-                : allProducts // ignore: cast_nullable_to_non_nullable
-                    as List<Product>,
-        filteredProducts:
-            null == filteredProducts
-                ? _self._filteredProducts
-                : filteredProducts // ignore: cast_nullable_to_non_nullable
-                    as List<Product>,
-        searchTerm:
-            null == searchTerm
-                ? _self.searchTerm
-                : searchTerm // ignore: cast_nullable_to_non_nullable
-                    as String,
-        currentCategory:
-            null == currentCategory
-                ? _self.currentCategory
-                : currentCategory // ignore: cast_nullable_to_non_nullable
-                    as String,
+        allProducts: null == allProducts
+            ? _self._allProducts
+            : allProducts // ignore: cast_nullable_to_non_nullable
+                  as List<Product>,
+        filteredProducts: null == filteredProducts
+            ? _self._filteredProducts
+            : filteredProducts // ignore: cast_nullable_to_non_nullable
+                  as List<Product>,
+        searchTerm: null == searchTerm
+            ? _self.searchTerm
+            : searchTerm // ignore: cast_nullable_to_non_nullable
+                  as String,
+        currentCategory: null == currentCategory
+            ? _self.currentCategory
+            : currentCategory // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }
@@ -445,7 +859,7 @@ class _$ErrorProductSearchStateCopyWithImpl<$Res>
         null == message
             ? _self.message
             : message // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }

@@ -36,6 +36,15 @@ dependencies:
 
   ffi: ^2.1.4
 
+  dio: ^5.3.3 # Or latest
+
+
+  esc_pos_printer: ^4.1.0
+  esc_pos_utils: ^1.1.0
+  flutter_bluetooth_basic: ^0.1.5
+  talker: ^4.8.3
+  talker_dio_logger: ^4.8.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,6 +60,8 @@ dev_dependencies:
   bloc_test: ^10.0.0
   mocktail: ^1.0.0
   json_serializable: ^6.9.5
+
+
 
 
   # Packaging window app

@@ -22,18 +22,23 @@ class PostgresProductRepositoryImpl extends ProductRepository {
   }
 }
 
-
 class LocalProductRepository extends ProductRepository {
   final _dio = Dio();
 
   @override
   Future<List<Product>> findAll() async {
-    final response = await _dio.get("http://localhost:8080/api/products");
-    print(response.data);
-    print("find All");
+    final response = await _dio.get(
+      "http://localhost:8080/api/v1/product-variants",
+    );
     return (response.data as List<dynamic>).map((e) {
-      return Product.fromJson(e as Map<String, dynamic>);
+      final data = e as Map<String, dynamic>;
+      return Product(
+        id: data['product']['id'] as int,
+        name: data['product']['name'] as String,
+        description: '',
+        price: data["variant"]["price"] as double,
+        category: '',
+      );
     }).toList();
   }
-
 }

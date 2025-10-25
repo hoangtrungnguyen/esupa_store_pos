@@ -1,5 +1,8 @@
 import 'package:esupa_store_pos/app/view/pages/page_router.dart';
+import 'package:esupa_store_pos/bootstrap.dart';
+import 'package:esupa_store_pos/data_source/auth_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'bloc/auth/auth_bloc.dart';
@@ -19,17 +22,26 @@ class _AppRootState extends State<AppRoot> with PageRouter {
   void initState() {
     super.initState();
     super.initState();
-    _authBloc = AuthBloc();
+    _authBloc = AuthBloc(
+        authRepository: getIt.get<AuthRepository>()
+    );
     _router = buildRouter(_authBloc); // Pass bloc to the router builder
-    _authBloc.add(const AuthEvent.appStarted()); // Initial check
+    // _authBloc.add(const AuthEvent.appStarted()); // Initial check
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _router,
-      title: "POS App",
-      theme: ThemeData(primarySwatch: Colors.blue),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => _authBloc,
+        ),
+      ],
+      child: MaterialApp.router(
+        routerConfig: _router,
+        title: "POS App",
+        theme: ThemeData(primarySwatch: Colors.blue),
+      ),
     );
   }
 
