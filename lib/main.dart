@@ -1,6 +1,11 @@
 import 'package:esupa_store_pos/app/view/app_root.dart';
+import 'package:esupa_store_pos/bootstrap.dart';
+import 'package:esupa_store_pos/initialize.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const AppRoot());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Required for async operations before runApp
+
+  await initialize();
+  bootstrap(() => AppRoot());
 }

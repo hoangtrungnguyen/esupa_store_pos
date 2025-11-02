@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:data_layer/data_layer.dart' as data_layer;
 import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 
@@ -30,12 +29,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   };
 
   Bloc.observer = const AppBlocObserver();
-
-  // Add cross-flavor configuration here
-
-  //DATABASE
-  data_layer.initialize();
-  // ------
 
   await getIt.allReady();
 

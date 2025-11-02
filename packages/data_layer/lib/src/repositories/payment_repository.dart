@@ -2,7 +2,6 @@ import 'package:data_layer/src/models/cash_payment_request.dart';
 import 'package:dio/dio.dart';
 
 // Assuming CashPaymentRequest is in this path. Adjust if necessary.
-import '../models/cash_payment_request.dart';
 
 /// Abstract class for handling payment-related API calls.
 abstract class PaymentRepository {

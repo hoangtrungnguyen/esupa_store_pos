@@ -13,6 +13,8 @@
 migrate_working_dir/
 Thumbs.db
 flavor_*.json
+distribute_options.yaml
+coverage/
 
 # IDE-specific
 # IntelliJ
@@ -20,6 +22,7 @@ flavor_*.json
 *.ipr
 *.iws
 .idea/
+.run/
 
 # VS Code
 .vscode/
@@ -125,3 +128,6 @@ app.*.map.json
 
 # Generated API docs
 **/doc/api/
+
+# FVM Version Cache
+.fvm/

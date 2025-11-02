@@ -1,5 +1,3 @@
-import 'package:data_layer/src/data_sources/data_sources.dart';
-import 'package:data_layer/src/data_sources/postgres/product_data_source.dart';
 import 'package:data_layer/src/repositories/order_repository.dart';
 import 'package:data_layer/src/repository_impl/postgres_product_repository_impl.dart';
 import 'package:get_it/get_it.dart';
@@ -34,8 +32,5 @@ Future<void> initialize({Endpoint? endpoint}) async {
   //   // Access RestService here
   //   dependsOn: [PostgresAccess], // IMPORTANT: Specify the dependency type
   // );
-  GetIt.I.registerLazySingleton<ProductRepository>(
-    () => LocalProductRepository(),
-    // Access RestService here
-  );
+
 }
