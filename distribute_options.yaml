@@ -1,79 +1,65 @@
-output: dist/
+# This is the fastforge configuration file.
+# Save this as 'distribute_options.yaml' in your project's root directory.
+
+# -----------------------------------------------------------------------------
+# Variables
+# -----------------------------------------------------------------------------
+# Define any variables here. This is especially useful for secret keys,
+# which can be loaded from your environment variables (e.g., in your CI/CD setup).
+variables:
+  # GITHUB_TOKEN: ${GITHUB_TOKEN} # Uncomment if you need to provide a token for GitHub releases (e.g., for private repos).
+
+# -----------------------------------------------------------------------------
+# Output Directory
+# -----------------------------------------------------------------------------
+# Specify where fastforge should place the packaged application.
+# I've updated this to your desired final folder.
+output: E:\Esupa\esupa-store-deployment\esupa_installer\frontend # <-- CHANGED: Set this to your target folder
+
+# -----------------------------------------------------------------------------
+# Release Definitions
+# -----------------------------------------------------------------------------
+# Define your release pipelines. You can have multiple pipelines (e.g., 'dev', 'staging', 'production').
 releases:
-  - name: staging
+  # This pipeline is named 'production'.
+  # You would run this using: fastforge release --name production
+  - name: production
     jobs:
-      # See full documentation: https://distributor.leanflutter.org/configuration/makers/exe
-      - name: windows-exe
+      # This job handles the Windows EXE release.
+      - name: release-windows-exe
+        
+        # --- Package Configuration ---
         package:
+          # Specify the platform you are building for.
           platform: windows
+          
+          # Specify the target package format.
           target: exe
+          
+          # Optional: Pass arguments to the 'flutter build' command.
           build_args:
+            # You can add any build arguments supported by 'flutter build windows'
+            # Example: Define environment variables for your app
             dart-define:
-              FLAVOR: staging
-              BASE_VAULT_URL: https://vault-ebond.ohmidasvn.dev/v1/
-              VAULT_USERNAME: admin
-              VAULT_PASSWORD: Ohmidas@123
-  - name: uat
-    jobs:
-      # See full documentation: https://distributor.leanflutter.org/configuration/makers/exe
-      - name: windows-exe
-        package:
-          platform: windows
-          target: exe
-          build_args:
-            dart-define:
-              FLAVOR: uat
-              BASE_VAULT_URL: https://vault-ebond.ohmidasvn.dev/v1/
-              VAULT_USERNAME: admin
-              VAULT_PASSWORD: Ohmidas@123
+              APP_ENV: production
+            # Example: Set a specific build name or number
+            # build-name: 1.0.2
+            # build-number: 10
+
+        # --- Publish Configuration ---
+        # I have removed the 'publish_to: github' section.
+        # The 'fastforge release' command will now only run the 'package' job
+        # and place the resulting .exe in the 'output' directory specified above.
+
+  # You could add other release pipelines here, e.g., for development:
   - name: dev
     jobs:
-      - name: windows-exe
+      - name: release-windows-dev
         package:
           platform: windows
           target: exe
           build_args:
             dart-define:
-              FLAVOR: dev
-              BASE_VAULT_URL: https://vault-ebond.ohmidasvn.dev/v1/
-              VAULT_USERNAME: admin
-              VAULT_PASSWORD: Ohmidas@123
+              APP_ENV: dev
+        # Also removed 'publish_to' from here.
 
-  - name: test_api
-    jobs:
-      - name: windows-exe
-        package:
-          platform: windows
-          target: exe
-          build_args:
-            dart-define:
-              FLAVOR: test_api
-              BASE_VAULT_URL: https://vault-ebond.ohmidasvn.dev/v1/
-              VAULT_USERNAME: admin
-              VAULT_PASSWORD: Ohmidas@123
-
-  - name: test
-    jobs:
-      - name: windows-exe
-        package:
-          platform: windows
-          target: exe
-          build_args:
-            dart-define:
-              FLAVOR: test
-              BASE_VAULT_URL: https://vault-ebond.ohmidasvn.dev/v1/
-              VAULT_USERNAME: admin
-              VAULT_PASSWORD: Ohmidas@123
-
-  - name: prod
-    jobs:
-      - name: windows-exe
-        package:
-          platform: windows
-          target: exe
-          build_args:
-            dart-define:
-              FLAVOR: prod
-              BASE_VAULT_URL: https://vault-ebond.ohmidasvn.dev/v1/
-              VAULT_USERNAME: admin
-              VAULT_PASSWORD: Ohmidas@123
